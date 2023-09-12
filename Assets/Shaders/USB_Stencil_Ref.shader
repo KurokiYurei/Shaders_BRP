@@ -1,4 +1,4 @@
-    Shader "Custom/USB_AlphaMask_Shader"
+Shader "Custom/USB_Stencil_Ref"
 {
     Properties
     {
@@ -6,9 +6,18 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        AlphaToMask On
-        LOD 100
+        Tags { "Queue"="Geometry-1"}
+        ZWrite Off
+        ColorMask 0
+        //LOD 100
+
+        Stencil
+        {
+            Ref 2
+            Comp Always
+
+            Pass Replace
+        }
 
         Pass
         {
@@ -44,7 +53,7 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return col;
+                return col * float4(1, 0, 0, 1);
             }
             ENDCG
         }

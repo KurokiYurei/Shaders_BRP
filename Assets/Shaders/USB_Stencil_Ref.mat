@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: USB_Basic_Mat
-  m_Shader: {fileID: 4800000, guid: 16aa4278b7e63154d973512d32d451d5, type: 3}
+  m_Name: USB_Stencil_Ref
+  m_Shader: {fileID: 4800000, guid: 19b9b331b54fd664191662b3852d42d8, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,6 +29,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats: []
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    m_Colors: []
   m_BuildTextureStacks: []

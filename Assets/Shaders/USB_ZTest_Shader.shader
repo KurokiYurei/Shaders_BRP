@@ -1,14 +1,17 @@
-    Shader "Custom/USB_AlphaMask_Shader"
+Shader "Custom/USB_ZTest_Shader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+
+        [Enum(UnityEngine.Rendering.CompareFunction)]
+        _ZTest ("ZTest", Int) = 0
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" }
-        AlphaToMask On
         LOD 100
+        ZTest [_ZTest]
 
         Pass
         {

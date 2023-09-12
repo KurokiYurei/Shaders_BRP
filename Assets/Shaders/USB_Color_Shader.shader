@@ -1,13 +1,14 @@
-    Shader "Custom/USB_AlphaMask_Shader"
+Shader "Custom/USB_Color_Shader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Tint", Color) = (1, 0, 0, 1)
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        AlphaToMask On
+        Tags { "RenderType"="Transparent" "Queue"="Transparent" }
+        Blend  SrcAlpha OneMinusSrcAlpha
         LOD 100
 
         Pass
@@ -20,6 +21,7 @@
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
+            float4 _Color;
 
             struct appdata
             {
@@ -43,8 +45,8 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                fixed4 col = tex2D(_MainTex, i.uv);
-                return col;
+                fixed4 mainText = tex2D(_MainTex, i.uv);
+                return mainText * _Color;
             }
             ENDCG
         }
